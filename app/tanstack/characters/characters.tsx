@@ -2,7 +2,7 @@
 
 import {useQuery} from "@tanstack/react-query";
 
-import {getCharacters} from "@/app/characters/queries";
+import {getCharacters} from "@/app/tanstack/characters/queries";
 
 export default function Characters() {
   const {data, isPending} = useQuery({queryKey: ["characters"], queryFn: getCharacters});
