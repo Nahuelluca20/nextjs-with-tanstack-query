@@ -34,7 +34,6 @@ export default function RootLayout({
         >
           <QueryProviders>
             <Navbar />
-
             <div className="mt-32 mb-10 p-5">{children}</div>
           </QueryProviders>
         </ThemeProvider>
