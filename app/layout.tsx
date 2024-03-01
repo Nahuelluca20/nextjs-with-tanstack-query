@@ -32,10 +32,10 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          <QueryProviders>
-            <Navbar />
-            <div className="mt-32 mb-10 p-5">{children}</div>
-          </QueryProviders>
+          <Navbar />
+          <div className="mt-32 mb-10 p-5">
+            <QueryProviders>{children}</QueryProviders>
+          </div>
         </ThemeProvider>
       </body>
     </html>
