@@ -6,7 +6,6 @@ import "./globals.css";
 import {ThemeProvider} from "@/providers/theme-provider";
 import {cn} from "@/lib/utils";
 import QueryProviders from "@/providers/query-provider";
-import {ModeToggle} from "@/components/mode toggle";
 import Navbar from "@/components/navbar";
 
 export const fontSans = FontSans({

@@ -10,6 +10,7 @@ export default function Characters() {
 
   return (
     <section className="space-y-10">
+      <h1 className="ml-4 text-3xl font-bold">Characters</h1>
       <div className="flex justify-center flex-wrap gap-8">
         {data?.map((character: any) => (
           <CharactersCard
