@@ -8,3 +8,9 @@ export const postTravelSchema = z.object({
     message: "content must be at least 2 characters.",
   }),
 });
+
+export const deleteTravelSchema = z.object({
+  id: z.string().min(2, {
+    message: "id must be at least 2 characters.",
+  }),
+});

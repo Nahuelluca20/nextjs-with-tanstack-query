@@ -21,8 +21,8 @@ export default function Travels() {
           </div>
         </div>
         <div className="space-y-3">
-          {data?.map((character: any) => (
-            <TravelCard key={character.id} content={character.content} title={character.title} />
+          {data?.map((post: any) => (
+            <TravelCard key={post.id} content={post.content} id={post.id} title={post.title} />
           ))}
         </div>
       </div>
