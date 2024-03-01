@@ -1,8 +1,7 @@
 import {dehydrate, HydrationBoundary, QueryClient} from "@tanstack/react-query";
 
-import {getTravels} from "@/queries";
-
 import Travels from "./travels";
+import {getTravels} from "./queries";
 
 export default async function page() {
   const queryClient = new QueryClient();

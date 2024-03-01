@@ -2,7 +2,7 @@
 
 import {useQuery} from "@tanstack/react-query";
 
-import {getTravels} from "@/queries";
+import {getTravels} from "./queries";
 
 export default function Travels() {
   const {data} = useQuery({queryKey: ["travels"], queryFn: getTravels});

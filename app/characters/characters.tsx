@@ -2,12 +2,12 @@
 
 import {useQuery} from "@tanstack/react-query";
 
-import {getCharacters} from "@/queries";
 import CharactersCard from "@/components/characters-card";
+
+import {getCharacters} from "./queries";
 
 export default function Characters() {
   const {data} = useQuery({queryKey: ["characters"], queryFn: getCharacters});
-  // const {data} = useQuery({queryKey: ["travels"], queryFn: getTravels});
 
   return (
     <section className="space-y-10">
