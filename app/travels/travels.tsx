@@ -9,6 +9,8 @@ import {getTravels} from "./queries";
 export default function Travels() {
   const {data} = useQuery({queryKey: ["travels"], queryFn: getTravels});
 
+  console.log(data);
+
   return (
     <section className="space-y-10">
       <div className="flex flex-col items-center space-y-5">
