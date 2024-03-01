@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const postTravelSchema = z.object({
+export const postSchema = z.object({
   title: z.string().min(2, {
     message: "title must be at least 2 characters.",
   }),
@@ -9,7 +9,7 @@ export const postTravelSchema = z.object({
   }),
 });
 
-export const deleteTravelSchema = z.object({
+export const deletePostSchema = z.object({
   id: z.string().min(2, {
     message: "id must be at least 2 characters.",
   }),

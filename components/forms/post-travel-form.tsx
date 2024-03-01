@@ -5,23 +5,23 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {useAction} from "next-safe-action/hooks";
 
-import {postTravelSchema} from "@/schemas/form/post-travel";
-import {createTravel} from "@/app/travels/queries";
+import {postSchema} from "@/schemas/form/post-travel";
+import {createPost} from "@/app/posts/queries";
 
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "../ui/form";
 import {Button} from "../ui/button";
 import {Input} from "../ui/input";
 
 export default function PostTravelForm() {
-  const form = useForm<z.infer<typeof postTravelSchema>>({
-    resolver: zodResolver(postTravelSchema),
+  const form = useForm<z.infer<typeof postSchema>>({
+    resolver: zodResolver(postSchema),
     defaultValues: {
       title: "",
       content: "",
     },
   });
 
-  const {execute, status} = useAction(createTravel, {
+  const {execute, status} = useAction(createPost, {
     onSuccess(data) {
       if (data?.error) console.log(data.error);
       if (data?.success) console.log(data.success);
@@ -31,7 +31,7 @@ export default function PostTravelForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof postTravelSchema>) {
+  function onSubmit(values: z.infer<typeof postSchema>) {
     execute(values);
     form.reset();
   }

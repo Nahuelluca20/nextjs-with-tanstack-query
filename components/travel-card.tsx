@@ -2,7 +2,7 @@ import React from "react";
 import {useAction} from "next-safe-action/hooks";
 import {Trash} from "lucide-react";
 
-import {deleteTravel} from "@/app/travels/queries";
+import {deletePost} from "@/app/posts/queries";
 
 import {Card, CardContent} from "./ui/card";
 
@@ -15,7 +15,7 @@ export default function TravelCard({
   content: string;
   id: string;
 }) {
-  const {execute: exectueDeletePost} = useAction(deleteTravel);
+  const {execute: exectueDeletePost} = useAction(deletePost);
 
   return (
     <Card className="w-[340px]">

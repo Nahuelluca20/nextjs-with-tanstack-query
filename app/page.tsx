@@ -10,7 +10,7 @@ export default function Home() {
           <Link href={"/characters"}>Get Characters with TanStack Query</Link>
         </Button>
         <Button asChild variant={"secondary"}>
-          <Link href={"/travels"}>Go to travels</Link>
+          <Link href={"/posts"}>Go to posts</Link>
         </Button>
       </div>
     </main>
