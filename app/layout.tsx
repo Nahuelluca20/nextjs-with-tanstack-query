@@ -6,6 +6,8 @@ import "./globals.css";
 import {ThemeProvider} from "@/providers/theme-provider";
 import {cn} from "@/lib/utils";
 import QueryProviders from "@/providers/query-provider";
+import {ModeToggle} from "@/components/mode toggle";
+import Navbar from "@/components/navbar";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,16 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn("min-h-screen bg-background font-sans antialiased py-20", fontSans.variable)}
-      >
+      <body className={cn("bg-background font-sans antialiased", fontSans.variable)}>
         <ThemeProvider
           disableTransitionOnChange
           enableSystem
           attribute="class"
           defaultTheme="system"
         >
-          <QueryProviders>{children}</QueryProviders>
+          <QueryProviders>
+            <Navbar />
+
+            <div className="mt-32 mb-10 p-5">{children}</div>
+          </QueryProviders>
         </ThemeProvider>
       </body>
     </html>
