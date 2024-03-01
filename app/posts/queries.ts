@@ -25,7 +25,7 @@ export const createPost = action(postSchema, async ({title, content}) => {
   revalidatePath("/posts");
 
   if (!newPost) return {error: "Could not create post"};
-  if (newPost[0]) return {success: "Post Created"};
+  if (newPost) return {success: "Post Created"};
 });
 
 export const deletePost = action(deletePostSchema, async ({id}) => {
@@ -33,5 +33,5 @@ export const deletePost = action(deletePostSchema, async ({id}) => {
 
   revalidatePath("/posts");
   if (!deletedPost) return {error: "Could not delete post"};
-  if (deletedPost[0]) return {success: "Post Deleted"};
+  if (deletedPost) return {success: "Post Deleted"};
 });
