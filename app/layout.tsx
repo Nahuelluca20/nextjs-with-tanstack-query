@@ -24,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body
+        className={cn("min-h-screen bg-background font-sans antialiased py-20", fontSans.variable)}
+      >
         <ThemeProvider
           disableTransitionOnChange
           enableSystem

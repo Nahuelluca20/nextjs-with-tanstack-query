@@ -1,7 +1,8 @@
 import {dehydrate, HydrationBoundary, QueryClient} from "@tanstack/react-query";
 
+import {getCharacters} from "@/queries";
+
 import Characters from "./characters";
-import {getCharacters} from "./queries";
 
 export default async function page() {
   const queryClient = new QueryClient();
