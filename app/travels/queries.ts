@@ -2,6 +2,12 @@
 
 import {v4 as uuidv4} from "uuid";
 import {sql} from "@vercel/postgres";
+import {createSafeActionClient} from "next-safe-action";
+import {revalidateTag} from "next/cache";
+
+import {postTravelSchema} from "@/schemas/form/post-travel";
+
+export const action = createSafeActionClient();
 
 export async function getTravels() {
   const {rows} = await sql`SELECT * FROM posts`;
@@ -9,22 +15,15 @@ export async function getTravels() {
   return rows;
 }
 
-// export async function createTravel({title, content}: {title: string; content: string}) {
-//   let id = uuidv4();
+export const createTravel = action(postTravelSchema, async ({title, content}) => {
+  let id = uuidv4();
+  const newTravel = await sql`
+    INSERT INTO posts (id, content, published, title) VALUES (${id}, ${content}, false, ${title})
+  `;
 
-//   const schema = z.object({
-//     title: z.string().nonempty(),
-//     content: z.string().nonempty(),
-//   });
+  console.log(newTravel);
 
-//   const data = schema.parse({
-//     title: formData.get("title"),
-//     content: formData.get("content"),
-//   });
-
-//   const {rows} = await sql`
-//     INSERT INTO posts (id, content, published, title) VALUES (${id}, ${content}, false, ${title})
-//   `;
-
-//   return rows;
-// }
+  revalidateTag("travels");
+  if (!newTravel) return {error: "Could not create post"};
+  if (newTravel[0]) return {success: "Post Created"};
+});

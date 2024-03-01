@@ -20,9 +20,11 @@ export default function Travels() {
             <PostTravelForm />
           </div>
         </div>
-        {data?.map((character: any) => (
-          <TravelCard key={character.id} content={character.content} title={character.title} />
-        ))}
+        <div className="space-y-3">
+          {data?.map((character: any) => (
+            <TravelCard key={character.id} content={character.content} title={character.title} />
+          ))}
+        </div>
       </div>
     </section>
   );

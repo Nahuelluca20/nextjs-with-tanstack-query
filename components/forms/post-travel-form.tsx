@@ -3,8 +3,10 @@
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
+import {useAction} from "next-safe-action/hooks";
 
 import {postTravelSchema} from "@/schemas/form/post-travel";
+import {createTravel} from "@/app/travels/queries";
 
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "../ui/form";
 import {Button} from "../ui/button";
@@ -19,8 +21,19 @@ export default function PostTravelForm() {
     },
   });
 
-  function onSubmit() {
-    console.log("gola");
+  const {execute, status} = useAction(createTravel, {
+    onSuccess(data) {
+      if (data?.error) console.log(data.error);
+      if (data?.success) console.log(data.success);
+    },
+    onExecute(data) {
+      console.log("creating post....");
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof postTravelSchema>) {
+    execute(values);
+    form.reset();
   }
 
   return (
