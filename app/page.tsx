@@ -10,6 +10,9 @@ export default function Home() {
           <Link href={"/characters"}>Get Characters with TanStack Query</Link>
         </Button>
         <Button asChild variant={"secondary"}>
+          <Link href={"/route-handler"}>Get Characters with Route Handler</Link>
+        </Button>
+        <Button asChild variant={"outline"}>
           <Link href={"/posts"}>Go to posts</Link>
         </Button>
       </div>
