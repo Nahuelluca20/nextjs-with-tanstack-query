@@ -1,3 +1,9 @@
+import Characters from "./characters";
+
 export default function page() {
-  return <div>dasds</div>;
+  return (
+    <div>
+      <Characters />
+    </div>
+  );
 }
