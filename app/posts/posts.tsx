@@ -1,14 +1,12 @@
-"use client";
-
-import {useQuery} from "@tanstack/react-query";
-
 import TravelCard from "@/components/travel-card";
 import PostTravelForm from "@/components/forms/post-travel-form";
 
 import {getPosts} from "./queries";
 
-export default function Posts() {
-  const {data} = useQuery({queryKey: ["posts"], queryFn: getPosts});
+export default async function Posts() {
+  const data = await getPosts();
+
+  console.log(data);
 
   return (
     <section className="space-y-10">
@@ -22,7 +20,7 @@ export default function Posts() {
         </div>
         <div className="space-y-3">
           {data?.map((post: any) => (
-            <TravelCard key={post.id} content={post.content} id={post.id} title={post.title} />
+            <TravelCard key={post?.id} content={post?.content} id={post?.id} title={post?.title} />
           ))}
         </div>
       </div>

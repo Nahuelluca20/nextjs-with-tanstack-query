@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {useAction} from "next-safe-action/hooks";
 import {Trash} from "lucide-react";
