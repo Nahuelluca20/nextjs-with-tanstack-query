@@ -19,7 +19,6 @@ export default function Characters() {
 
   return (
     <section className="space-y-10">
-      sarasa
       <div className="flex justify-center flex-wrap gap-8">
         {data?.map((character: any) => (
           <CharactersCard
