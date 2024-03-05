@@ -2,12 +2,10 @@
 
 import {v4 as uuidv4} from "uuid";
 import {sql} from "@vercel/postgres";
-import {createSafeActionClient} from "next-safe-action";
 import {revalidatePath} from "next/cache";
 
 import {deletePostSchema, postSchema} from "@/schemas/form/post-travel";
-
-export const action = createSafeActionClient();
+import {action} from "@/lib/safe-action";
 
 export async function getPosts() {
   const {rows} = await sql`SELECT * FROM posts`;
