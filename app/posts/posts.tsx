@@ -6,8 +6,6 @@ import {getPosts} from "./queries";
 export default async function Posts() {
   const data = await getPosts();
 
-  console.log(data);
-
   return (
     <section className="space-y-10">
       <div className="flex flex-col items-center space-y-10">
