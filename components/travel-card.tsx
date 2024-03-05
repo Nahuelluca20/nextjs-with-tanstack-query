@@ -27,7 +27,7 @@ export default function TravelCard({
         </p>
         <Trash
           className="w-4 text-red-400 cursor-pointer "
-          onClick={() => exectueDeletePost({id: id})}
+          onClick={() => exectueDeletePost({id})}
         />
       </CardContent>
     </Card>
